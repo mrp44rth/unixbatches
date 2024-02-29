@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Webpage with Fullscreen Loading</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #3498db, #8e44ad);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+    }
+
+    .button {
+        margin: 25px;
+        padding: 15px 30px;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 2px solid black;
+        border-radius: 7px;
+        background: linear-gradient(135deg, pink, yellow, green);
+        color: black;
+        cursor: pointer;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.10);
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+    }
+
+    #iframe-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+    }
+
+    #iframe-container iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 200px;
+        height: auto;
+        filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .close-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        border-radius: 20px 0 0 20px;
+        background-color: #3498db;
+        color: white;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .close-button:hover {
+        background-color: #2980b9;
+    }
+</style>
+</head>
+<body>
+<div class="logo-container">
+    <img src="logo.png" alt="Logo" class="logo">
+</div>
+<div class="container">
+    <button class="button" onclick="loadWebsite('https://example.com')">SMI</button>
+    <button class="button" onclick="loadWebsite('https://example.org')">FAP</button>
+    <button class="button" onclick="loadWebsite('https://example.net')">SBT</button>
+    <button class="button" onclick="loadWebsite('https://mrp44rth.github.io/vkarya')">N/A</button>
+</div>
+
+<div id="iframe-container">
+    <div class="close-button" onclick="closeIframe()">Close</div>
+    <iframe id="website-iframe"></iframe>
+</div>
+
+<script>
+    function loadWebsite(url) {
+        var iframeContainer = document.getElementById('iframe-container');
+        var iframe = document.getElementById('website-iframe');
+
+        iframe.src = url;
+        iframeContainer.style.display = 'block';
+
+        setTimeout(function() {
+            iframeContainer.onclick = function() {
+                iframeContainer.style.display = 'none';
+                iframe.src = '';
+            };
+        }, 100);
+    }
+
+    function closeIframe() {
+        var iframeContainer = document.getElementById('iframe-container');
+        var iframe = document.getElementById('website-iframe');
+
+        iframeContainer.style.display = 'none';
+        iframe.src = '';
+    }
+</script>
+</body>
+</html>
