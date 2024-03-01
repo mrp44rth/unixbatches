@@ -24,18 +24,19 @@
     }
 
     .button {
-        margin: 25px;
+        margin: 20px;
         padding: 15px 30px;
-        font-size: 25px;
+        font-size: 50px;
         font-weight: bold;
         text-transform: uppercase;
         border: 2px solid black;
         border-radius: 7px;
-        background: linear-gradient(135deg, pink, yellow, green);
+        background: linear-gradient(135deg, grey, white);
         color: black;
         cursor: pointer;
         box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3), 0 1px 5px rgba(0, 0, 0, 0.10);
         transition: background-color 0.3s;
+        width: 70%;
     }
 
     .button:hover {
@@ -95,8 +96,11 @@
 <body>
 <div class="logo-container">
     <img src="logo.png" alt="Logo" class="logo">
+    <h3>Welcome to Biolock</h3>
+        <h4>You have 4 batches available.</h4>
 </div>
 <div class="container">
+
     <button class="button" onclick="loadWebsite('https://mrp44rth.github.io/GITISMI')">SMI</button>
     <button class="button" onclick="loadWebsite('https://mrp44rth.github.io/GITIFAP')">FAP</button>
     <button class="button" onclick="loadWebsite('https://mrp44rth.github.io/GITISBT')">SBT</button>
